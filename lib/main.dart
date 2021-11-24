@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/screens/base/base_screen.dart';
 
 Future <void> main() async {
 
@@ -8,7 +9,7 @@ Future <void> main() async {
   await Firebase.initializeApp();
   runApp(const MyApp());
 
-  FirebaseFirestore.instance.collection('teste').add({'teste': 'teste'});
+  FirebaseFirestore.instance.collection('usuarios').add({'nome': 'joao', 'idade': '37'});
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Loja do Joao',
     theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BaseScreen(),
     );
   }
 }
